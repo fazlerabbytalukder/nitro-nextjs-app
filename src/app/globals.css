@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nitro: #e0e600;
+  --color-ink: #000000;
+  --color-smoke: #272727;
+}
+
+@theme inline {
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-exo);
+}
+
+:root {
+  --fw: 100cqw;
+}
+
+@layer base {
+  body {
+    @apply bg-ink font-sans text-white antialiased;
+    container-type: inline-size;
+  }
+
+  ::selection {
+    @apply bg-nitro text-ink;
+  }
+}
+
+@utility bg-spotlight {
+  background-color: var(--color-ink);
+  background-image: radial-gradient(
+    54.5% 54.5% at 50% 46.4%,
+    #272727 0%,
+    #141414 50%,
+    #0a0a0a 75%,
+    #000000 100%
+  );
+}
+
+@utility text-nitro-gradient {
+  background-image: radial-gradient(
+    52.8% 52.8% at 54.1% 67.6%,
+    #7d8000 0%,
+    #aeb300 50%,
+    #e0e600 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility h-frame {
+  @media (width >= 64rem) {
+    height: calc(var(--fw) * 1098 / 1920);
+    min-height: 0;
+  }
+}
+
+@utility frame {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+
+  @media (width >= 64rem) {
+    max-width: var(--fw);
+    padding-inline: calc(var(--fw) * 88 / 1920);
+  }
+}
